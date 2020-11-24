@@ -47,6 +47,7 @@ namespace TheFellowshipOfCode.DotNet.AdventureRunner
                 if (!OutputGame) continue;
                 Console.WriteLine(turn.TurnCounter);
                 Console.WriteLine(runner.ToString());
+                
             } while (!turn.IsFinished);
 
             Console.WriteLine("============ FINISHED ============");

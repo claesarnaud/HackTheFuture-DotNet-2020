@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="NewFile1.txt" />
+    <None Remove="NewFile2.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="HTF2020.Contracts">
       <HintPath>..\.dependencies\HTF2020.Contracts.dll</HintPath>
     </Reference>
