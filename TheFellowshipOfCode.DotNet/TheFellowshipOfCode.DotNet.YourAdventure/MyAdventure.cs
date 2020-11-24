@@ -33,8 +33,8 @@ namespace TheFellowshipOfCode.DotNet.YourAdventure
                     Id = i,
                     Name = $"Member {i + 1}",
                     Constitution = 8,
-                    Strength = 13,
-                    Intelligence = 13
+                    Strength = 8,
+                    Intelligence = 18
                 });
             }
             Console.WriteLine("Amount Party members: " + request.MembersCount);
@@ -122,6 +122,13 @@ namespace TheFellowshipOfCode.DotNet.YourAdventure
                     }
                 }
 
+                if (request.PossibleActions.Contains(TurnAction.Attack))
+                {
+                    discoveredLocations.Add(tracker);
+                    tracker = null;
+                    return Task.FromResult(new Turn(TurnAction.Attack));
+                }
+
                 if (request.PossibleActions.Contains(TurnAction.Loot))
                 {
                     discoveredLocations.Add(tracker);
@@ -129,12 +136,6 @@ namespace TheFellowshipOfCode.DotNet.YourAdventure
                     return Task.FromResult(new Turn(TurnAction.Loot));
                 }
 
-                if (request.PossibleActions.Contains(TurnAction.Attack))
-                {
-                    discoveredLocations.Add(tracker);
-                    tracker = null;
-                    return Task.FromResult(new Turn(TurnAction.Attack));
-                }
 
                 Navigate nextItem = new Navigate(request, tracker.x, tracker.y);
                 Console.WriteLine("Discovered locationslist:"+discoveredLocations.Count);
