@@ -4,10 +4,9 @@ using System.Text;
 
 namespace TheFellowshipOfCode.DotNet.YourAdventure
 {
-    interface Position
+    class DiscoveredLocation: Position
     {
-        int x { get; set; }
-        int y { get; set; }
-
+        public int x { get; set; }
+        public int y { get; set; }
     }
 }
